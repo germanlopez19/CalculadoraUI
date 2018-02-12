@@ -49,6 +49,7 @@
             this.btnDiv = new System.Windows.Forms.Button();
             this.btnProducto = new System.Windows.Forms.Button();
             this.btnResta = new System.Windows.Forms.Button();
+            this.btnDecimal = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,8 +74,9 @@
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // btnNumber1
             // 
@@ -170,7 +172,7 @@
             // 
             this.btnNumber0.Location = new System.Drawing.Point(40, 245);
             this.btnNumber0.Name = "btnNumber0";
-            this.btnNumber0.Size = new System.Drawing.Size(72, 23);
+            this.btnNumber0.Size = new System.Drawing.Size(33, 23);
             this.btnNumber0.TabIndex = 10;
             this.btnNumber0.Text = "0";
             this.btnNumber0.UseVisualStyleBackColor = true;
@@ -257,11 +259,22 @@
             this.btnResta.UseVisualStyleBackColor = true;
             this.btnResta.Click += new System.EventHandler(this.btnResta_Click);
             // 
+            // btnDecimal
+            // 
+            this.btnDecimal.Location = new System.Drawing.Point(79, 245);
+            this.btnDecimal.Name = "btnDecimal";
+            this.btnDecimal.Size = new System.Drawing.Size(33, 23);
+            this.btnDecimal.TabIndex = 19;
+            this.btnDecimal.Text = ".";
+            this.btnDecimal.UseVisualStyleBackColor = true;
+            this.btnDecimal.Click += new System.EventHandler(this.btnDecimal_Click);
+            // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 361);
+            this.Controls.Add(this.btnDecimal);
             this.Controls.Add(this.btnResta);
             this.Controls.Add(this.btnProducto);
             this.Controls.Add(this.btnDiv);
@@ -319,6 +332,7 @@
         private System.Windows.Forms.Button btnDiv;
         private System.Windows.Forms.Button btnProducto;
         private System.Windows.Forms.Button btnResta;
+        private System.Windows.Forms.Button btnDecimal;
     }
 }
 

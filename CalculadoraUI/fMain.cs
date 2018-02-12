@@ -31,9 +31,17 @@ namespace CalculadoraUI
             }
             else if(value == "+" || value== "-" || value == "*" || value == "/")
             {
+                if(_Operator != "" && _OperandTxt != "")
+                {
+                    DoOperation();
+                }
                 _Operator = value;
-                _Operand = decimal.Parse(_OperandTxt);
-                _OperandTxt = "";
+                if(_OperandTxt != "")
+                {
+                    _Operand = decimal.Parse(_OperandTxt);
+                    _OperandTxt = "";
+                }
+                
             }
             else if(value == "\b")
             {
@@ -43,14 +51,23 @@ namespace CalculadoraUI
             {
                 Reset();
             }
+            else if(value == "." || value == ",")
+            {
+                if(_OperandTxt.IndexOf(",") < 0)
+                {
+                    _OperandTxt += ",";
+                    txtResult.Text = _OperandTxt;
+                }
+            }
             
         }
 
         private void Reset()
         {
             _Operand = 0;
-            _OperandTxt = "";
+            _OperandTxt = "0";
             txtResult.Text = "0";
+            _Operator = "";
         }
 
         private void DoOperation()
@@ -73,6 +90,8 @@ namespace CalculadoraUI
                 result = _Operand / decimal.Parse(_OperandTxt);
             }
             txtResult.Text = result.ToString();
+
+            _Operator = "";
         }
 
         private void Delete()
@@ -82,7 +101,6 @@ namespace CalculadoraUI
                 _OperandTxt = _OperandTxt.Substring(0, _OperandTxt.Length - 1);
                 txtResult.Text = _OperandTxt;
             }
-            txtResult.Text = "0";
         }
 
         private void btnNumber4_Click(object sender, EventArgs e)
@@ -180,6 +198,16 @@ namespace CalculadoraUI
         private void btnReset_Click(object sender, EventArgs e)
         {
             Reset();
+        }
+
+        private void btnDecimal_Click(object sender, EventArgs e)
+        {
+            SetOperand(".");
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
